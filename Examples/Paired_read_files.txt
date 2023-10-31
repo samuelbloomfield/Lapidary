@@ -1,0 +1,1 @@
+Examples/Reads/Paired_reads_1.fq.gz	Examples/Reads/Paired_reads_1.fq.gz
