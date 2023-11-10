@@ -7,12 +7,13 @@ Lapidary uses Diamond to identify reads that align to an amino acid sequence dat
 ## Quick start
 Bring up the full list of options:
 ```
-perl Lapidary.pl -version
+%perl Lapidary.pl -version
 
 Lapidary: a software for identifying amino acid sequences using sequenced reads
 
 	Options:
-	input			Location of text file containing locations of read files; tab-delimited for paired reads (required)
+	read_1			Location of first read file (required)
+	read_2			Location of second read file if read files are paired
 	db			Full location to fasta file containing amino acid sequences (required)
 	threads			Number of threads to use for Diamond (default: 1)
 	identity		Diamond identity percentage cut-off to use (default: 80)
@@ -25,12 +26,12 @@ Lapidary: a software for identifying amino acid sequences using sequenced reads
 
 Run Lapidary on single read files:
 ```
-perl Lapidary.pl -input Examples/Single_read_files.txt -read_type single -db Examples/Amino_acid_database.fasta
+perl Lapidary.pl -read_1 Examples/Reads/Single_reads.fq.gz --read_type single -db Examples/Amino_acid_database.fasta
 ```
 
 Run Lapidary on paired read files:
 ```
-perl Lapidary.pl -input Examples/Paired_read_files.txt -read_type paired -db Examples/Amino_acid_database.fasta
+perl Lapidary.pl -read_1 Examples/Reads/Paired_reads_1.fq.gz -read_2 Examples/Reads/Paired_reads_2.fq.gz -read_type paired -db Examples/Amino_acid_database.fasta
 ```
 ## Output
 Lapidary produces a tab-delimited file for each read file or read pair with the following columns:
