@@ -49,3 +49,7 @@ Lapidary produces a tab-delimited file for each read file or read pair with the 
 ## Requirements
  - perl >=5.32
  - diamond >=2.1.7
+ 
+## Installation
+Lapidary can be installed using the following cpanm command:
+ - cpanm App::lapidary
