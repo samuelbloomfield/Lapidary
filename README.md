@@ -52,4 +52,10 @@ Lapidary produces a tab-delimited file for each read file or read pair with the 
  
 ## Installation
 Lapidary can be installed using the following cpanm command:
- - cpanm App::lapidary
+```
+cpanm App::lapidary
+```
+
+## Web interface
+A web interface is available to run Lapidary on paired read files:
+https://lapidary.quadram.ac.uk/
