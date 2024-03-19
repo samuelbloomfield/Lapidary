@@ -16,8 +16,8 @@ Lapidary: a software for identifying amino acid sequences using sequenced reads
 	read_2			Location of second read file if read files are paired
 	db			Full location to fasta file containing amino acid sequences (required)
 	threads			Number of threads to use for Diamond (default: 1)
-	identity		Diamond identity percentage cut-off to use (default: 80)
-	coverage		Diamond coverage percentage cut-off to use (default: 20)
+	identity		Diamond identity percentage cut-off to use (default: 70)
+	coverage		Diamond coverage percentage cut-off to use (default: 50)
 	read_type		Types of reads used (required): single or paired
 	sequence_identification	Method for calling most likely sequence: identity (default) or consensus
 	help			Display help screen
