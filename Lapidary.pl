@@ -1,7 +1,7 @@
 ###
 #	Lapidary.pl
 #	Script to determine the read coverage and identity to a protein database using diamond
-#	Last modified: 19/03/2024
+#	Last modified: 19/11/2024
 #	Author: Samuel Bloomfield
 ###
 
@@ -72,7 +72,7 @@ if(defined($help)){
 
 #Print out version
 if(defined($version)){
-	die "\n\nLapidary version 0.5.0\n\n";
+	die "\n\nLapidary version 0.6.0\n\n";
 } 
 
 
@@ -235,6 +235,8 @@ my $partial_position_current;
 
 my $temp;
 
+my $chunk_length;
+
 #Use first read file to name outputs
 if ($read_1=~m/^.+\/(.*?)\.f.*?$/) { 
 	$concatenated = ($1 . "_concatenated.fastq.gz");
@@ -326,7 +328,7 @@ if ($read_1=~m/^.+\/(.*?)\.f.*?$/) {
 	#Open cut-off output file
 	open(OUT, ">$protein_cut_off") or die "Couldn't open OUT $protein_cut_off $!\n";
 
-	print OUT "Protein\tCoverage\tIdentity\tMean_read_depth\tAlignment_start\tAlignment_end\tMost_likely_sequence\n";
+	print OUT "Protein\tCoverage\tIdentity\tMean_read_depth\tAlignment_start\tAlignment_end\tAlignment_length\tMost_likely_sequence\n";
 		
 	#Loop through each protein sequence
 	for (my $j=0; $j < scalar(@unique_proteins); $j++) {
@@ -624,7 +626,12 @@ if ($read_1=~m/^.+\/(.*?)\.f.*?$/) {
 		$mean_read_depth = $position_depth_array[0] / scalar(@protein_split);
 		
 		if($coverage_proportion > 0){
-			print OUT "$unique_proteins[$j]\t$coverage_proportion\t$identity_proportion\t$mean_read_depth\t$position_start_array[0]\t$position_end_array[0]\t$consensus_chunks[0]\n";
+
+			#Calculate alignment length
+			$chunk_length = length($consensus_chunks[0]);
+			
+			#Print results
+			print OUT "$unique_proteins[$j]\t$coverage_proportion\t$identity_proportion\t$mean_read_depth\t$position_start_array[0]\t$position_end_array[0]\t$chunk_length\t$consensus_chunks[0]\n";
 		}
 	}
 		
