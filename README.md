@@ -44,6 +44,7 @@ Lapidary produces a tab-delimited file for each read file or read pair with the 
 | Mean_read_depth | Mean read depth for the reference amino acid sequence | 1.2111562156 |
 | Alignment_start | Position of first amino acid that reads aligned to | 23 |
 | Alignment_end | Position of last amino acid that reads aligned to | 324 |
+| Alignment_length | Position of last amino acid that reads aligned to | 302 |
 | Most_likely_sequence | Most likely sequence predicted | VGVAVYELDLFGRLRNL |
 
 ## Requirements
